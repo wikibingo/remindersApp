@@ -1,0 +1,22 @@
+<div class="container">
+  <form enctype="multipart/form-data" action="/reminders/all" method="POST">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="titleInput" placeholder="Title" name="title">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Description" name="description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="cover">Cover Photo</label>
+      
+      <input type="file" class="form-control" name="cover">
+    </div>
+    <div class="form-group">
+      <label for="cover">Random Cover Photo</label>
+      <input type="checkbox" name="cover">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="page-header">Reminders</h1>
+  <% if (reminderItem.cover) { %>
+    <div>
+      <% if (reminderItem.cover.startsWith('http') || reminderItem.cover.startsWith('https')) { %>
+        <img src="<%= reminderItem.cover %>" alt="" srcset="">
+      <% } else { %>
+        <img src="/uploads/<%= reminderItem.cover %>" alt="" srcset="">
+      <% } %>
+    </div>
+  <% } %>
+  
+  <!-- <div style="background-image: url('/uploads/<%= reminderItem.cover %>'); background-size: cover; background-position: center; height: 200px;"></div> -->
+
+    <ul class="list-group">
+      <li class="list-group-item">
+        <h3><strong><%= reminderItem.title %>: </strong></h3>
+        <h4><%= reminderItem.description %></h4>
+        <h4>Completed:
+          <% if (reminderItem.completed == true) { %>
+            <span class="label label-success">True</span>
+          <% } else if (reminderItem.completed == false) { %>
+            <span class="label label-danger">False</span>
+          <% } %>
+        </h4>
+
+        <a class="btn btn-warning" href=<%= "/reminders/reminder/" + userId + "/" + reminderItem.id + "/edit" %>>Edit</a>
+
+        <form class="deleteForm "method="POST" action=<%= "/reminders/reminder/" + userId + "/" + reminderItem.id + "/delete/" %>>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+
+      </li>
+    </ul>
+
+</div>

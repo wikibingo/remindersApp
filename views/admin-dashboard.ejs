@@ -1,0 +1,14 @@
+<h1 class="mt-4">Dashboard</h1>
+
+
+<% sessionUserIds.forEach(function(sessionUser) { %>
+    <p class="lead mb-3">Current Active Sessions:</p>
+    <p class="lead mb-3">SessionID: <%= sessionUser.sessionId %></p>
+    <p class="lead mb-3">UserID: <%= sessionUser.userId %></p>
+    <form class="deleteForm" method="POST" action="/auth/revoke">
+        <input type="hidden" name="sessionId" value="<%= sessionUser.sessionId %>">
+        <button type="submit" class="btn btn-danger">Revoke</button>
+    </form>
+  <% }) %>
+
+<a href="/auth/logout" class="btn btn-secondary">Logout</a>

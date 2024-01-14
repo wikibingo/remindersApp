@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/reminders">Reminder List</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/reminders/all">Reminder List</a>
+      <a class="nav-item nav-link" href="/reminders/reminder/new">Create</a>
+      <% if (typeof(userRole) === 'undefined') { %>
+        <a></a>
+      <% } else if (userRole === 'user') { %>
+        <!-- Display the logout button for regular users -->
+        <form action="/auth/logout" method="POST">
+          <button type="submit" class="btn btn-primary btn-block">Logout</button>
+        </form>
+      <% } else if (userRole === 'admin') { %>
+        <!-- Display the administration and logout buttons for admin -->
+        <a class="nav-item nav-link" href="/admin-dashboard">Administration</a>
+        <form action="/auth/logout" method="POST">
+          <button type="submit" class="btn btn-primary btn-block">Logout</button>
+        </form>
+      <% } %>
+      
+      
+    </div>
+  </div>
+</nav>
